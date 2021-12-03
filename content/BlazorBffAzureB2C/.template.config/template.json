@@ -1,0 +1,17 @@
+{
+    "author": "damienbod",
+    "classifications": [
+        "AspNetCore",
+        "WASM",
+        "AzureAD",
+		"OAuth2"
+    ],
+    "name": "ASP.NET Core Blazor BFF hosted WASM Azure AD",
+    "identity": "Blazor.BFF.AzureAD.Template",
+    "shortName": "blazorbffaad",
+    "tags": {
+        "language": "C#"
+    },
+    "sourceName": "BlazorBffAzureAD",
+    "preferNameDirectory": "true"
+}
