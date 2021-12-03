@@ -6,7 +6,7 @@
         "AzureB2C",
 		"OAuth2"
     ],
-    "name": "ASP.NET Core Blazor BFF hosted WASM Azure AD",
+    "name": "ASP.NET Core Blazor BFF hosted WASM Azure B2C",
     "identity": "Blazor.BFF.AzureB2C.Template",
     "shortName": "blazorbffb2c",
     "tags": {
