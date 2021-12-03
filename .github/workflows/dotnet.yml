@@ -19,6 +19,6 @@ jobs:
         dotnet-version: '6.0'
         include-prerelease: True
     - name: Restore dependencies
-      run: dotnet restore ./content/BlazorBffAzureAD/Server
+      run: dotnet restore ./content/BlazorBffAzureB2C/Server
     - name: Build STS
-      run: dotnet build ./content/BlazorBffAzureAD/Server/BlazorBffAzureAD.Server.csproj --no-restore
+      run: dotnet build ./content/BlazorBffAzureB2C/Server/Blazor.Bff.AzureB2c.Server.csproj --no-restore
