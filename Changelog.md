@@ -4,7 +4,7 @@
 
 **2021-11-30** 1.0.0
 - Initial release 
-- Azure AD authentication using Microsoft.Identity.Web
+- Azure B2C authentication using Microsoft.Identity.Web
 - Microsoft Graph
 - ASP.NET Core 6
 
