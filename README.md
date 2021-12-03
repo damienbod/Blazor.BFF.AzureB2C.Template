@@ -1,0 +1,1 @@
+# Blazor.BFF.AzureB2C.Template
