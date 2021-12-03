@@ -4,7 +4,7 @@
 
 This template can be used to create a Blazor WASM application hosted in an ASP.NET Core Web app using Azure B2C and Microsoft.Identity.Web to authenticate using the BFF security architecture. (server authentication) This removes the tokens form the browser and uses cookies with each HTTP request, response. The template also adds the required security headers as best it can for a Blazor application.
 
-![Blazor BFF Azure AD](https://github.com/damienbod/Blazor.BFF.AzureB2C.Template/blob/main/images/blazorBFFAzureAD.png)
+![Blazor BFF Azure B2C](https://github.com/damienbod/Blazor.BFF.AzureB2C.Template/blob/main/images/blazorBFFAzureB2C.png)
 
 ## Features
 
