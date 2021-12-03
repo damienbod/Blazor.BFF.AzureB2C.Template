@@ -2,7 +2,7 @@
 
 [Readme](https://github.com/damienbod/Blazor.BFF.AzureB2C.Template/blob/main/README.md) 
 
-**2021-11-30** 1.0.0
+**2021-12-03** 1.0.0
 - Initial release 
 - Azure B2C authentication using Microsoft.Identity.Web
 - Microsoft Graph
