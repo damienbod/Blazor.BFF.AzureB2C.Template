@@ -8,7 +8,7 @@ This template can be used to create a Blazor WASM application hosted in an ASP.N
 
 ## Other templates
 
-![Blazor BFF Azure AD](https://github.com/damienbod/Blazor.BFF.AzureAD.Template)
+[Blazor BFF Azure AD](https://github.com/damienbod/Blazor.BFF.AzureAD.Template)
 
 ## Features
 
