@@ -6,16 +6,16 @@ This template can be used to create a Blazor WASM application hosted in an ASP.N
 
 ![Blazor BFF Azure B2C](https://github.com/damienbod/Blazor.BFF.AzureB2C.Template/blob/main/images/blazorBFFAzureB2C.png)
 
-## Other templates
-
-[Blazor BFF Azure AD](https://github.com/damienbod/Blazor.BFF.AzureAD.Template)
-
 ## Features
 
 - WASM hosted in ASP.NET Core 6
 - BFF with Azure B2C using Microsoft.Identity.Web
 - OAuth2 and OpenID Connect OIDC
 - No tokens in the browser
+
+## Other templates
+
+[Blazor BFF Azure AD](https://github.com/damienbod/Blazor.BFF.AzureAD.Template)
 
 ## Using the template
 
