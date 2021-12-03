@@ -3,15 +3,15 @@
     "classifications": [
         "AspNetCore",
         "WASM",
-        "AzureAD",
+        "AzureB2C",
 		"OAuth2"
     ],
     "name": "ASP.NET Core Blazor BFF hosted WASM Azure AD",
-    "identity": "Blazor.BFF.AzureAD.Template",
-    "shortName": "blazorbffaad",
+    "identity": "Blazor.BFF.AzureB2C.Template",
+    "shortName": "blazorbffb2c",
     "tags": {
         "language": "C#"
     },
-    "sourceName": "BlazorBffAzureAD",
+    "sourceName": "BlazorBffAzureB2C",
     "preferNameDirectory": "true"
 }
