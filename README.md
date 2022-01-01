@@ -17,6 +17,8 @@ This template can be used to create a Blazor WASM application hosted in an ASP.N
 
 [Blazor BFF Azure AD](https://github.com/damienbod/Blazor.BFF.AzureAD.Template)
 
+[Blazor BFF Azure OpenID Connect](https://github.com/damienbod/Blazor.BFF.OpenIDConnect.Template)
+
 ## Using the template
 
 ### install
@@ -101,6 +103,11 @@ dotnet new -i <PATH>
 
 Where `<PATH>` is the path to the folder containing .template.config.
 
+## Azure App registrations documentation
+
+https://docs.microsoft.com/en-us/azure/active-directory-b2c/tutorial-register-applications
+
+https://docs.microsoft.com/en-us/azure/active-directory-b2c/tutorial-register-applications?tabs=app-reg-ga
 
 ## Credits, Used NuGet packages + ASP.NET Core 6.0 standard packages
 
