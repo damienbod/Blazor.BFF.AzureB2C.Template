@@ -5,7 +5,7 @@
 **2022-01-04** 1.0.2
 - Small fixes
 - Updated packages
-- 
+
 **2021-12-09** 1.0.1
 - Remove unused static host file
 - fix text in template description
