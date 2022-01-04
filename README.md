@@ -92,7 +92,7 @@ nuget pack content/Blazor.BFF.AzureB2C.Template.nuspec
 Locally built nupkg:
 
 ```
-dotnet new -i Blazor.BFF.AzureB2C.Template.1.0.1.nupkg
+dotnet new -i Blazor.BFF.AzureB2C.Template.1.0.2.nupkg
 ```
 
 Local folder:
@@ -112,7 +112,7 @@ https://docs.microsoft.com/en-us/azure/active-directory-b2c/tutorial-register-ap
 ## Credits, Used NuGet packages + ASP.NET Core 6.0 standard packages
 
 - NetEscapades.AspNetCore.SecurityHeaders
-- IdentityModel
+- IdentityModel.AspNetCore
 
 ## Links
 
