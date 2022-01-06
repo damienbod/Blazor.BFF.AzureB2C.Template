@@ -54,7 +54,6 @@ Add the Azure B2C App registration settings
 	// Add your policy here
 	"SignUpSignInPolicyId": "B2C_1_signup_signin", 
 	"SignedOutCallbackPath ": "/signout-callback-oidc"
-	//"ClientSecret": "--in-user-settings--"
 },
 
 ```
@@ -67,7 +66,7 @@ Add the permissions for Microsoft Graph if required, application scopes are used
 	"TenantId": "[Enter 'common', or 'organizations' or the Tenant Id (Obtained from the Azure portal. Select 'Endpoints' from the 'App registrations' blade and use the GUID in any of the URLs), e.g. da41245a5-11b3-996c-00a8-4d99re19f292]",
 	"ClientId": "[Enter the Client Id (Application ID obtained from the Azure portal), e.g. ba74781c2-53c2-442a-97c2-3d60re42f403]",
 	"Scopes": ".default"
-	//"ClientSecret": "--in-user-settings--"
+	//"ClientSecret": "--in-user-secrets--"
 },
 ```
 
