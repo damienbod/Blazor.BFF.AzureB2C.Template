@@ -46,7 +46,6 @@ Add the Azure B2C App registration settings
 	// Add your policy here
 	"SignUpSignInPolicyId": "B2C_1_signup_signin", 
 	"SignedOutCallbackPath ": "/signout-callback-oidc"
-	//"ClientSecret": "--in-user-secrets--"
 },
 
 ```
