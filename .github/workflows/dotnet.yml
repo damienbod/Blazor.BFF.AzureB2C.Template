@@ -21,4 +21,4 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ./content/BlazorBffAzureB2C/Server
     - name: Build STS
-      run: dotnet build ./content/BlazorBffAzureB2C/Server/Blazor.Bff.AzureB2c.Server.csproj --no-restore
+      run: dotnet build ./content/BlazorBffAzureB2C/Server/BlazorBffAzureB2C.Server.csproj --no-restore
