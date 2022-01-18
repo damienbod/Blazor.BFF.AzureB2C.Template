@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Graph;
 using System.Threading.Tasks;
 
-namespace Blazor.Bff.AzureB2c.Server.Services
+namespace BlazorBffAzureB2C.Server.Services
 {
     public class GraphApiClientService
     {

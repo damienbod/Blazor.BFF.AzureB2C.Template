@@ -1,4 +1,4 @@
-﻿using Blazor.Bff.AzureB2c.Client.Services;
+﻿using BlazorBffAzureB2C.Client.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-namespace Blazor.Bff.AzureB2c.Client
+namespace BlazorBffAzureB2C.Client
 {
     public class Program
     {

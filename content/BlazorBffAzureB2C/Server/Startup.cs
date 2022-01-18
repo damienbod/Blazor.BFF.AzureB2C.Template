@@ -1,4 +1,4 @@
-using Blazor.Bff.AzureB2c.Server.Services;
+using BlazorBffAzureB2C.Server.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,7 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
 
-namespace Blazor.Bff.AzureB2c.Server
+namespace BlazorBffAzureB2C.Server
 {
     public class Startup
     {

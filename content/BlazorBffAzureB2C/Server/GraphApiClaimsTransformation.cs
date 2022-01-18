@@ -1,10 +1,10 @@
-﻿using Blazor.Bff.AzureB2c.Server.Services;
+﻿using BlazorBffAzureB2C.Server.Services;
 using Microsoft.AspNetCore.Authentication;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace Blazor.Bff.AzureB2c.Server
+namespace BlazorBffAzureB2C.Server
 {
     public class GraphApiClaimsTransformation : IClaimsTransformation
     {

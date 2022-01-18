@@ -1,4 +1,4 @@
-﻿namespace Blazor.Bff.AzureB2c.Shared.Authorization
+﻿namespace BlazorBffAzureB2C.Shared.Authorization
 {
     public class ClaimValue
     {

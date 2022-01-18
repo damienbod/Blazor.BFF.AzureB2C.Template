@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Client\Blazor.Bff.AzureB2c.Client.csproj" />
-    <ProjectReference Include="..\Shared\Blazor.Bff.AzureB2c.Shared.csproj" />
+    <ProjectReference Include="..\Client\BlazorBffAzureB2C.Client.csproj" />
+    <ProjectReference Include="..\Shared\BlazorBffAzureB2C.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

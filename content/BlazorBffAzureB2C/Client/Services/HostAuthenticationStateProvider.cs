@@ -1,4 +1,4 @@
-﻿using Blazor.Bff.AzureB2c.Shared.Authorization;
+﻿using BlazorBffAzureB2C.Shared.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Logging;
@@ -8,7 +8,7 @@ using System.Net.Http.Json;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace Blazor.Bff.AzureB2c.Client.Services
+namespace BlazorBffAzureB2C.Client.Services
 {
     // orig src https://github.com/berhir/BlazorWebAssemblyCookieAuth
     public class HostAuthenticationStateProvider : AuthenticationStateProvider
