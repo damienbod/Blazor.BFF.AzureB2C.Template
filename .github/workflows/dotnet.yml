@@ -20,5 +20,5 @@ jobs:
         include-prerelease: True
     - name: Restore dependencies
       run: dotnet restore ./content/BlazorBffAzureB2C/Server
-    - name: Build STS
+    - name: Build Blazor template
       run: dotnet build ./content/BlazorBffAzureB2C/Server/BlazorBffAzureB2C.Server.csproj --no-restore
