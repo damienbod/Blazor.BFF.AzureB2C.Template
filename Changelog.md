@@ -2,6 +2,10 @@
 
 [Readme](https://github.com/damienbod/Blazor.BFF.AzureB2C.Template/blob/main/README.md) 
 
+**2022-01-21** 1.0.6
+- Update readme and appsettings by precising description of domain
+- Remove unused LoginDisplay razor page
+
 **2022-01-18** 1.0.5
 - fix name project generation
 
