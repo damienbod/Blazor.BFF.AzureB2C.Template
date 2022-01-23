@@ -91,7 +91,7 @@ nuget pack content/Blazor.BFF.AzureB2C.Template.nuspec
 Locally built nupkg:
 
 ```
-dotnet new -i Blazor.BFF.AzureB2C.Template.1.0.6.nupkg
+dotnet new -i Blazor.BFF.AzureB2C.Template.1.0.7.nupkg
 ```
 
 Local folder:
