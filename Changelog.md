@@ -2,6 +2,9 @@
 
 [Readme](https://github.com/damienbod/Blazor.BFF.AzureB2C.Template/blob/main/README.md) 
 
+**2022-01-23** 1.0.8
+- Using the object identifier to request the MS graph data
+
 **2022-01-23** 1.0.7
 - Remove PWA items, default template uses anti-forgery cookies and no PWA support
   (Will consider supporting this later, requires switching to CORS preflight CSRF protection)

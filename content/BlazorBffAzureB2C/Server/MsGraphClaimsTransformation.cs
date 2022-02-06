@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace BlazorBffAzureB2C.Server
 {
-    public class GraphApiClaimsTransformation : IClaimsTransformation
+    public class MsGraphClaimsTransformation : IClaimsTransformation
     {
-        private readonly GraphApiClientService _graphApiClientService;
+        private readonly MsGraphService _msGraphService;
 
-        public GraphApiClaimsTransformation(GraphApiClientService graphApiClientService)
+        public MsGraphClaimsTransformation(MsGraphService msGraphService)
         {
 
-            _graphApiClientService = graphApiClientService;
+            _msGraphService = msGraphService;
         }
 
         public async Task<ClaimsPrincipal> TransformAsync(ClaimsPrincipal principal)
@@ -22,10 +22,10 @@ namespace BlazorBffAzureB2C.Server
             var groupClaimType = "group";
             if (!principal.HasClaim(claim => claim.Type == groupClaimType))
             {
-                var nameidentifierClaimType = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier";
-                var nameidentifier = principal.Claims.FirstOrDefault(t => t.Type == nameidentifierClaimType);
+                var objectidentifierClaimType = "http://schemas.microsoft.com/identity/claims/objectidentifier";
+                var objectIdentifier = principal.Claims.FirstOrDefault(t => t.Type == objectidentifierClaimType);
 
-                var groupIds = await _graphApiClientService.GetGraphApiUserMemberGroups(nameidentifier.Value);
+                var groupIds = await _msGraphService.GetGraphApiUserMemberGroups(objectIdentifier.Value);
 
                 foreach (var groupId in groupIds.ToList())
                 {
