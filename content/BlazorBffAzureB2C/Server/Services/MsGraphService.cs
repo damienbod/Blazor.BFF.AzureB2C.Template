@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace BlazorBffAzureB2C.Server.Services
 {
-    public class GraphApiClientService
+    public class MsGraphService
     {
         private readonly GraphServiceClient _graphServiceClient;
 
-        public GraphApiClientService(IConfiguration configuration)
+        public MsGraphService(IConfiguration configuration)
         {
             string[] scopes = configuration.GetValue<string>("GraphApi:Scopes")?.Split(' ');
             var tenantId = configuration.GetValue<string>("GraphApi:TenantId");

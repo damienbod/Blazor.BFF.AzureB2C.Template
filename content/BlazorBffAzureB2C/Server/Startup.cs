@@ -23,7 +23,7 @@ namespace BlazorBffAzureB2C.Server
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<GraphApiClientService>();
+            services.AddScoped<MsGraphService>();
             services.AddTransient<IClaimsTransformation, GraphApiClaimsTransformation>();
 
             services.AddAntiforgery(options =>

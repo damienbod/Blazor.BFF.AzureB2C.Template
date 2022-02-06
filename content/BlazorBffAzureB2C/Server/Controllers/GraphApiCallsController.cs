@@ -15,9 +15,9 @@ namespace BlazorBffAzureB2C.Server.Controllers
     [Route("api/[controller]")]
     public class GraphApiCallsController : ControllerBase
     {
-        private GraphApiClientService _graphApiClientService;
+        private MsGraphService _graphApiClientService;
 
-        public GraphApiCallsController(GraphApiClientService graphApiClientService)
+        public GraphApiCallsController(MsGraphService graphApiClientService)
         {
             _graphApiClientService = graphApiClientService;
         }

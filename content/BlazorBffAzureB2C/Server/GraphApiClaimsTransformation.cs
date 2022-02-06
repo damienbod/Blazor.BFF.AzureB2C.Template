@@ -8,12 +8,12 @@ namespace BlazorBffAzureB2C.Server
 {
     public class GraphApiClaimsTransformation : IClaimsTransformation
     {
-        private readonly GraphApiClientService _graphApiClientService;
+        private readonly MsGraphService _msGraphService;
 
-        public GraphApiClaimsTransformation(GraphApiClientService graphApiClientService)
+        public GraphApiClaimsTransformation(MsGraphService msGraphService)
         {
 
-            _graphApiClientService = graphApiClientService;
+            _msGraphService = msGraphService;
         }
 
         public async Task<ClaimsPrincipal> TransformAsync(ClaimsPrincipal principal)
@@ -25,7 +25,7 @@ namespace BlazorBffAzureB2C.Server
                 var objectidentifierClaimType = "http://schemas.microsoft.com/identity/claims/objectidentifier";
                 var objectIdentifier = principal.Claims.FirstOrDefault(t => t.Type == objectidentifierClaimType);
 
-                var groupIds = await _graphApiClientService.GetGraphApiUserMemberGroups(objectIdentifier.Value);
+                var groupIds = await _msGraphService.GetGraphApiUserMemberGroups(objectIdentifier.Value);
 
                 foreach (var groupId in groupIds.ToList())
                 {
