@@ -22,10 +22,10 @@ namespace BlazorBffAzureB2C.Server
             var groupClaimType = "group";
             if (!principal.HasClaim(claim => claim.Type == groupClaimType))
             {
-                var nameidentifierClaimType = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier";
-                var nameidentifier = principal.Claims.FirstOrDefault(t => t.Type == nameidentifierClaimType);
+                var objectidentifierClaimType = "http://schemas.microsoft.com/identity/claims/objectidentifier";
+                var objectIdentifier = principal.Claims.FirstOrDefault(t => t.Type == objectidentifierClaimType);
 
-                var groupIds = await _graphApiClientService.GetGraphApiUserMemberGroups(nameidentifier.Value);
+                var groupIds = await _graphApiClientService.GetGraphApiUserMemberGroups(objectIdentifier.Value);
 
                 foreach (var groupId in groupIds.ToList())
                 {
