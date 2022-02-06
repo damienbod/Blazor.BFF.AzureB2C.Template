@@ -33,18 +33,16 @@ namespace BlazorBffAzureB2C.Server.Services
         public async Task<User> GetGraphApiUser(string userId)
         {
             return await _graphServiceClient.Users[userId]
-                    .Request()
-                    .GetAsync()
-                    .ConfigureAwait(false);
+                .Request()
+                .GetAsync();
         }
 
         public async Task<IUserAppRoleAssignmentsCollectionPage> GetGraphApiUserAppRoles(string userId)
         {
             return await _graphServiceClient.Users[userId]
-                    .AppRoleAssignments
-                    .Request()
-                    .GetAsync()
-                    .ConfigureAwait(false);
+                .AppRoleAssignments
+                .Request()
+                .GetAsync();
         }
 
         public async Task<IDirectoryObjectGetMemberGroupsCollectionPage> GetGraphApiUserMemberGroups(string userId)
@@ -53,8 +51,8 @@ namespace BlazorBffAzureB2C.Server.Services
 
             return await _graphServiceClient.Users[userId]
                 .GetMemberGroups(securityEnabledOnly)
-                .Request().PostAsync()
-                .ConfigureAwait(false);
+                .Request()
+                .PostAsync();
         }
     }
 }
