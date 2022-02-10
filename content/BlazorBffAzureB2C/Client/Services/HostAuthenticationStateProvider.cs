@@ -80,10 +80,8 @@ public class HostAuthenticationStateProvider : AuthenticationStateProvider
             return new ClaimsPrincipal(new ClaimsIdentity());
         }
 
-        var identity = new ClaimsIdentity(
-            nameof(HostAuthenticationStateProvider),
-            user.NameClaimType,
-            user.RoleClaimType);
+        var identity = new ClaimsIdentity(nameof(HostAuthenticationStateProvider),
+            user.NameClaimType, user.RoleClaimType);
 
         if (user.Claims != null)
         {
