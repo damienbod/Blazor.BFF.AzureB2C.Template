@@ -6,28 +6,27 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web;
 
-namespace BlazorBffAzureB2C.Server.Controllers
+namespace BlazorBffAzureB2C.Server.Controllers;
+
+[ValidateAntiForgeryToken]
+[Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
+[AuthorizeForScopes(Scopes = new string[] { "User.ReadBasic.All user.read" })]
+[ApiController]
+[Route("api/[controller]")]
+public class GraphApiCallsController : ControllerBase
 {
-    [ValidateAntiForgeryToken]
-    [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
-    [AuthorizeForScopes(Scopes = new string[] { "User.ReadBasic.All user.read" })]
-    [ApiController]
-    [Route("api/[controller]")]
-    public class GraphApiCallsController : ControllerBase
+    private readonly MsGraphService _msGraphtService;
+
+    public GraphApiCallsController(MsGraphService msGraphtService)
     {
-        private MsGraphService _graphApiClientService;
+        _msGraphtService = msGraphtService;
+    }
 
-        public GraphApiCallsController(MsGraphService graphApiClientService)
-        {
-            _graphApiClientService = graphApiClientService;
-        }
-
-        [HttpGet]
-        public async Task<IEnumerable<string>> Get()
-        {
-            var userData = await _graphApiClientService.GetGraphApiUser(User.GetNameIdentifierId());
-            return new List<string> { $"DisplayName: {userData.DisplayName}",
-                $"GivenName: {userData.GivenName}", $"AboutMe: {userData.AboutMe}" };
-        }
+    [HttpGet]
+    public async Task<IEnumerable<string>> Get()
+    {
+        var userData = await _msGraphtService.GetGraphApiUser(User.GetNameIdentifierId());
+        return new List<string> { $"DisplayName: {userData.DisplayName}",
+            $"GivenName: {userData.GivenName}", $"AboutMe: {userData.AboutMe}" };
     }
 }
