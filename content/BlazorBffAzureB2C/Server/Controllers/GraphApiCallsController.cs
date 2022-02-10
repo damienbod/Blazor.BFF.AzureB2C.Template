@@ -15,17 +15,17 @@ namespace BlazorBffAzureB2C.Server.Controllers;
 [Route("api/[controller]")]
 public class GraphApiCallsController : ControllerBase
 {
-    private MsGraphService _graphApiClientService;
+    private readonly MsGraphService _msGraphtService;
 
-    public GraphApiCallsController(MsGraphService graphApiClientService)
+    public GraphApiCallsController(MsGraphService msGraphtService)
     {
-        _graphApiClientService = graphApiClientService;
+        _msGraphtService = msGraphtService;
     }
 
     [HttpGet]
     public async Task<IEnumerable<string>> Get()
     {
-        var userData = await _graphApiClientService.GetGraphApiUser(User.GetNameIdentifierId());
+        var userData = await _msGraphtService.GetGraphApiUser(User.GetNameIdentifierId());
         return new List<string> { $"DisplayName: {userData.DisplayName}",
             $"GivenName: {userData.GivenName}", $"AboutMe: {userData.AboutMe}" };
     }
