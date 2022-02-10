@@ -3,57 +3,55 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Graph;
 using System.Threading.Tasks;
 
-namespace BlazorBffAzureB2C.Server.Services
+namespace BlazorBffAzureB2C.Server.Services;
+
+public class MsGraphService
 {
-    public class MsGraphService
+    private readonly GraphServiceClient _graphServiceClient;
+
+    public MsGraphService(IConfiguration configuration)
     {
-        private readonly GraphServiceClient _graphServiceClient;
+        string[] scopes = configuration.GetValue<string>("GraphApi:Scopes")?.Split(' ');
+        var tenantId = configuration.GetValue<string>("GraphApi:TenantId");
 
-        public MsGraphService(IConfiguration configuration)
+        // Values from app registration
+        var clientId = configuration.GetValue<string>("GraphApi:ClientId");
+        var clientSecret = configuration.GetValue<string>("GraphApi:ClientSecret");
+
+        var options = new TokenCredentialOptions
         {
-            string[] scopes = configuration.GetValue<string>("GraphApi:Scopes")?.Split(' ');
-            var tenantId = configuration.GetValue<string>("GraphApi:TenantId");
+            AuthorityHost = AzureAuthorityHosts.AzurePublicCloud
+        };
 
-            // Values from app registration
-            var clientId = configuration.GetValue<string>("GraphApi:ClientId");
-            var clientSecret = configuration.GetValue<string>("GraphApi:ClientSecret");
+        // https://docs.microsoft.com/dotnet/api/azure.identity.clientsecretcredential
+        var clientSecretCredential = new ClientSecretCredential(
+            tenantId, clientId, clientSecret, options);
 
-            var options = new TokenCredentialOptions
-            {
-                AuthorityHost = AzureAuthorityHosts.AzurePublicCloud
-            };
+        _graphServiceClient = new GraphServiceClient(clientSecretCredential, scopes);
+    }
 
-            // https://docs.microsoft.com/dotnet/api/azure.identity.clientsecretcredential
-            var clientSecretCredential = new ClientSecretCredential(
-                tenantId, clientId, clientSecret, options);
+    public async Task<User> GetGraphApiUser(string userId)
+    {
+        return await _graphServiceClient.Users[userId]
+            .Request()
+            .GetAsync();
+    }
 
-            _graphServiceClient = new GraphServiceClient(clientSecretCredential, scopes);
-        }
+    public async Task<IUserAppRoleAssignmentsCollectionPage> GetGraphApiUserAppRoles(string userId)
+    {
+        return await _graphServiceClient.Users[userId]
+            .AppRoleAssignments
+            .Request()
+            .GetAsync();
+    }
 
-        public async Task<User> GetGraphApiUser(string userId)
-        {
-            return await _graphServiceClient.Users[userId]
-                .Request()
-                .GetAsync();
-        }
+    public async Task<IDirectoryObjectGetMemberGroupsCollectionPage> GetGraphApiUserMemberGroups(string userId)
+    {
+        var securityEnabledOnly = true;
 
-        public async Task<IUserAppRoleAssignmentsCollectionPage> GetGraphApiUserAppRoles(string userId)
-        {
-            return await _graphServiceClient.Users[userId]
-                .AppRoleAssignments
-                .Request()
-                .GetAsync();
-        }
-
-        public async Task<IDirectoryObjectGetMemberGroupsCollectionPage> GetGraphApiUserMemberGroups(string userId)
-        {
-            var securityEnabledOnly = true;
-
-            return await _graphServiceClient.Users[userId]
-                .GetMemberGroups(securityEnabledOnly)
-                .Request()
-                .PostAsync();
-        }
+        return await _graphServiceClient.Users[userId]
+            .GetMemberGroups(securityEnabledOnly)
+            .Request()
+            .PostAsync();
     }
 }
-
