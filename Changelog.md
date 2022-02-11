@@ -2,6 +2,10 @@
 
 [Readme](https://github.com/damienbod/Blazor.BFF.AzureB2C.Template/blob/main/README.md) 
 
+**2022-02-11** 1.0.9
+- Update namespaces
+- Update nuget packages
+
 **2022-01-23** 1.0.8
 - Using the object identifier to request the MS graph data
 
