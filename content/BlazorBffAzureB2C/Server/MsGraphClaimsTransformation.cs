@@ -1,12 +1,11 @@
 ﻿using BlazorBffAzureB2C.Server.Services;
-using Microsoft.AspNetCore.Authentication;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace BlazorBffAzureB2C.Server;
 
-public class MsGraphClaimsTransformation : IClaimsTransformation
+public class MsGraphClaimsTransformation
 {
     private readonly MsGraphService _msGraphService;
 
