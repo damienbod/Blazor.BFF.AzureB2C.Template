@@ -2,6 +2,9 @@
 
 [Readme](https://github.com/damienbod/Blazor.BFF.AzureB2C.Template/blob/main/README.md) 
 
+**2022-03-04** 1.0.10
+- Cache claims after authentication
+
 **2022-02-11** 1.0.9
 - Update namespaces
 - Update nuget packages
