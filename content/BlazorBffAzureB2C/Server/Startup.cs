@@ -1,5 +1,4 @@
 using BlazorBffAzureB2C.Server.Services;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -47,7 +46,7 @@ public class Startup
             .EnableTokenAcquisitionToCallDownstreamApi(initialScopes)
             .AddInMemoryTokenCaches();
 
-        services.Configure<OpenIdConnectOptions>(OpenIdConnectDefaults.AuthenticationScheme, options =>
+        services.Configure<MicrosoftIdentityOptions>(OpenIdConnectDefaults.AuthenticationScheme, options =>
         {
             options.Events.OnTokenValidated = async context =>
             {
