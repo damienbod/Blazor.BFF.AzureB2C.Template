@@ -2,6 +2,9 @@
 
 [Readme](https://github.com/damienbod/Blazor.BFF.AzureB2C.Template/blob/main/README.md) 
 
+**2022-03-05** 1.0.11
+- bugfix downstream APIs support
+
 **2022-03-04** 1.0.10
 - Cache claims after authentication
 
