@@ -11,7 +11,6 @@ public class MsGraphClaimsTransformation
 
     public MsGraphClaimsTransformation(MsGraphService msGraphService)
     {
-
         _msGraphService = msGraphService;
     }
 
