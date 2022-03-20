@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using BlazorBffAzureB2C.Server.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -25,8 +26,15 @@ public class GraphApiCallsController : ControllerBase
     [HttpGet]
     public async Task<IEnumerable<string>> Get()
     {
-        var userData = await _msGraphtService.GetGraphApiUser(User.GetNameIdentifierId());
-        return new List<string> { $"DisplayName: {userData.DisplayName}",
+        var userId = User.GetNameIdentifierId();
+        if (userId != null)
+        {
+            var userData = await _msGraphtService.GetGraphApiUser(userId);
+            return new List<string> { $"DisplayName: {userData.DisplayName}",
             $"GivenName: {userData.GivenName}", $"AboutMe: {userData.AboutMe}" };
+        }
+
+        return Array.Empty<string>();
+       
     }
 }
