@@ -2,6 +2,10 @@
 
 [Readme](https://github.com/damienbod/Blazor.BFF.AzureB2C.Template/blob/main/README.md) 
 
+**2022-03-20** 1.1.0
+- Updated nuget packages
+- Using nullable enabled
+
 **2022-03-05** 1.0.11
 - bugfix downstream APIs support
 
