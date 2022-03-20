@@ -21,7 +21,7 @@ public class Startup
     }
 
     public IConfiguration Configuration { get; }
-    protected IServiceProvider ApplicationServices { get; set; }
+    protected IServiceProvider? ApplicationServices { get; set; }
 
     public void ConfigureServices(IServiceCollection services)
     {
@@ -39,21 +39,24 @@ public class Startup
         services.AddHttpClient();
         services.AddOptions();
 
-        var scopes = string.Empty; // Configuration.GetValue<string>("DownstreamApi:Scopes");
-        string[] initialScopes = scopes?.Split(' ');
+        //var scopes = Configuration.GetValue<string>("DownstreamApi:Scopes");
+        //string[] initialScopes = scopes.Split(' ');
 
         services.AddMicrosoftIdentityWebAppAuthentication(Configuration, "AzureB2C")
-            .EnableTokenAcquisitionToCallDownstreamApi(initialScopes)
+            .EnableTokenAcquisitionToCallDownstreamApi(Array.Empty<string>())
             .AddInMemoryTokenCaches();
 
         services.Configure<MicrosoftIdentityOptions>(OpenIdConnectDefaults.AuthenticationScheme, options =>
         {
             options.Events.OnTokenValidated = async context =>
             {
-                using var scope = ApplicationServices.CreateScope();
-                context.Principal = await scope.ServiceProvider
-                    .GetRequiredService<MsGraphClaimsTransformation>()
-                    .TransformAsync(context.Principal);
+                if (ApplicationServices != null && context.Principal != null)
+                {
+                    using var scope = ApplicationServices.CreateScope();
+                    context.Principal = await scope.ServiceProvider
+                        .GetRequiredService<MsGraphClaimsTransformation>()
+                        .TransformAsync(context.Principal);
+                }
             };
         });
 

@@ -11,7 +11,7 @@ public class MsGraphService
 
     public MsGraphService(IConfiguration configuration)
     {
-        string[] scopes = configuration.GetValue<string>("GraphApi:Scopes")?.Split(' ');
+        string[]? scopes = configuration.GetValue<string>("GraphApi:Scopes")?.Split(' ');
         var tenantId = configuration.GetValue<string>("GraphApi:TenantId");
 
         // Values from app registration
