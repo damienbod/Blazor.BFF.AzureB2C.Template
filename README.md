@@ -12,6 +12,7 @@ This template can be used to create a Blazor WASM application hosted in an ASP.N
 - BFF with Azure B2C using Microsoft.Identity.Web
 - OAuth2 and OpenID Connect OIDC
 - No tokens in the browser
+- - Azure AD Continuous Access Evaluation CAE support
 
 ## Other templates
 
@@ -70,6 +71,112 @@ Add the permissions for Microsoft Graph if required, application scopes are used
 },
 ```
 
+### Use Continuous Access Evaluation CAE with a downstream API (access_token)
+
+#### Azure app registration manifest
+
+```json
+"optionalClaims": {
+	"idToken": [],
+	"accessToken": [
+		{
+			"name": "xms_cc",
+			"source": null,
+			"essential": false,
+			"additionalProperties": []
+		}
+	],
+	"saml2Token": []
+},
+```
+
+Any API call for the Blazor WASM could be implemented like this:
+
+```
+[HttpGet]
+public async Task<IActionResult> Get()
+{
+  try
+  {
+	// Do logic which calls an API and throws claims challenge 
+	// WebApiMsalUiRequiredException. The WWW-Authenticate header is set
+	// using the OpenID Connect standards and Signals spec.
+  }
+  catch (WebApiMsalUiRequiredException hex)
+  {
+	var claimChallenge = WwwAuthenticateParameters
+		.GetClaimChallengeFromResponseHeaders(hex.Headers);
+		
+	return Unauthorized(claimChallenge);
+  }
+}
+```
+
+The downstream API call could be implemented something like this:
+
+```
+public async Task<T> CallApiAsync(string url)
+{
+	var client = _clientFactory.CreateClient();
+
+	// ... add bearer token
+	
+	var response = await client.GetAsync(url);
+	if (response.IsSuccessStatusCode)
+	{
+		var stream = await response.Content.ReadAsStreamAsync();
+		var payload = await JsonSerializer.DeserializeAsync<T>(stream);
+
+		return payload;
+	}
+
+	// You can check the WWW-Authenticate header first, if it is a CAE challenge
+	
+	throw new WebApiMsalUiRequiredException($"Error: {response.StatusCode}.", response);
+}
+```
+
+### Use Continuous Access Evaluation CAE in a standalone app (id_token)
+
+#### Azure app registration manifest
+
+```json
+"optionalClaims": {
+	"idToken": [
+		{
+			"name": "xms_cc",
+			"source": null,
+			"essential": false,
+			"additionalProperties": []
+		}
+	],
+	"accessToken": [],
+	"saml2Token": []
+},
+```
+If using a CAE Authcontext in a standalone project, you only need to challenge against the claims in the application.
+
+```
+private readonly CaeClaimsChallengeService _caeClaimsChallengeService;
+
+public AdminApiCallsController(CaeClaimsChallengeService caeClaimsChallengeService)
+{
+  _caeClaimsChallengeService = caeClaimsChallengeService;
+}
+
+[HttpGet]
+public IActionResult Get()
+{
+  // if CAE claim missing in id token, the required claims challenge is returned
+  var claimsChallenge = _caeClaimsChallengeService
+	.CheckForRequiredAuthContextIdToken(AuthContextId.C1, HttpContext);
+
+  if (claimsChallenge != null)
+  {
+	return Unauthorized(claimsChallenge);
+  }
+```
+
 ### uninstall
 
 ```
@@ -111,7 +218,6 @@ https://docs.microsoft.com/en-us/azure/active-directory-b2c/tutorial-register-ap
 ## Credits, Used NuGet packages + ASP.NET Core 6.0 standard packages
 
 - NetEscapades.AspNetCore.SecurityHeaders
-- IdentityModel.AspNetCore
 
 ## Links
 
