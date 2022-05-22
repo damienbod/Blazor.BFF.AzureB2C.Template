@@ -2,6 +2,15 @@
 
 [Readme](https://github.com/damienbod/Blazor.BFF.AzureB2C.Template/blob/main/README.md) 
 
+**2022-03-20** 1.2.0
+- use new top-level statements and remove
+- enable ImplicitUsings
+- add IAntiforgeryHttpClientFactory/AntiforgeryHttpClientFactory
+- Replace of IdentityModel with System.Security.Claims and remove IdentityModel nuget package
+- Add support for Azure AD Continuous Access Evaluation CAE
+- Add 404, 401, response handling
+- Update nuget packages
+
 **2022-03-20** 1.1.0
 - Updated nuget packages
 - Using nullable enabled
