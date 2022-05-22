@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
 	<metadata>
 		<id>Blazor.BFF.AzureB2C.Template</id>
-		<version>1.1.0</version>
+		<version>1.2.0</version>
 		<title>Blazor.BFF.AzureB2C.Template</title>
 		<license type="file">LICENSE</license>
 		<description>Blazor BFF template for WASM ASP.NET Core hosted</description>
@@ -15,7 +15,7 @@
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<copyright>2022 damienbod</copyright>
 		<summary>This template provides a simple Blazor template with BFF server authentication WASM hosted</summary>
-		<releaseNotes>Updated nuget packages, using nullable enabled</releaseNotes>
+		<releaseNotes>use new top-level statements and remove, enable ImplicitUsings, add IAntiforgeryHttpClientFactory/AntiforgeryHttpClientFactory, Replace of IdentityModel with System.Security.Claims and remove IdentityModel nuget package, Add support for Azure AD Continuous Access Evaluation CAE, Add 404, 401, response handling, Update nuget packages</releaseNotes>
 		<repository type="git" url="https://github.com/damienbod/Blazor.BFF.AzureB2C.Template" />
 		<packageTypes>
 			<packageType name="Template" />
