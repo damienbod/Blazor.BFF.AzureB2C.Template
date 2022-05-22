@@ -1,5 +1,5 @@
 ﻿@page "/graphapicall"
-@inject IHttpClientFactory httpClientFactory 
+@inject IHttpClientFactory httpClientFactory
 @inject IJSRuntime JSRuntime
 
 <h1>Data from Graph API</h1>
@@ -39,5 +39,4 @@ else
 
         apiData = await client.GetFromJsonAsync<string[]>("api/GraphApiCalls");
     }
-
 }
