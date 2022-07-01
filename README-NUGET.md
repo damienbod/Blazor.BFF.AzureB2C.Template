@@ -175,6 +175,47 @@ public IActionResult Get()
 dotnet new -u Blazor.BFF.AzureB2C.Template
 ```
 
+### Troubleshooting 
+ 
+If running the app in a service such as Web App for Containers or Azure Container apps then you may experience issues with Azure terminating the SSL connection and passing the requests on as HTTP. 
+ 
+The first area affected will be the AntiForgery cookie, which will need the SecurePolicy changing as shown below: 
+ 
+``` 
+services.AddAntiforgery(options => 
+{ 
+    options.HeaderName = "X-XSRF-TOKEN"; 
+    options.Cookie.Name = "__Host-X-XSRF-TOKEN"; 
+    options.Cookie.SameSite = SameSiteMode.Strict; 
+    options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest; 
+}); 
+``` 
+ 
+The second area affected will be the login process itself, which will fail with a 'Correlation failed' error. Inspecting the event logs will show errors referring to 'cookie not found'. To remedy this, modify the code in the two areas below: 
+ 
+``` 
+builder.Services.Configure<ForwardedHeadersOptions>(options => 
+{ 
+    options.ForwardedHeaders = ForwardedHeaders.XForwardedProto; 
+}); 
+ 
+services.AddMicrosoftIdentityWebAppAuthentication(configuration, "AzureB2C") 
+    .EnableTokenAcquisitionToCallDownstreamApi(Array.Empty<string>()) 
+    .AddInMemoryTokenCaches(); 
+``` 
+and this 
+ 
+``` 
+app.UseForwardedHeaders(); 
+ 
+if (env.IsDevelopment()) 
+{ 
+    app.UseDeveloperExceptionPage(); 
+``` 
+ 
+Further details may be found here [Configure ASP.NET Core to work with proxy servers and load balancers](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/proxy-load-balancer?view=aspnetcore-3.1#nginx-configuration) 
+ 
+Please note, adding the 'XForwardedFor' enum as shown in the Microsoft document above did not work and needed to be removed so only the XForwardedProto remains. 
 
 ## Credits, Used NuGet packages + ASP.NET Core 6.0 standard packages
 
