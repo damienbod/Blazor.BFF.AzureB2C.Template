@@ -18,7 +18,7 @@ This template can be used to create a Blazor WASM application hosted in an ASP.N
 
 [Blazor BFF Azure AD](https://github.com/damienbod/Blazor.BFF.AzureAD.Template)
 
-[Blazor BFF Azure OpenID Connect](https://github.com/damienbod/Blazor.BFF.OpenIDConnect.Template)
+[Blazor BFF OpenID Connect](https://github.com/damienbod/Blazor.BFF.OpenIDConnect.Template)
 
 ## Using the template
 
