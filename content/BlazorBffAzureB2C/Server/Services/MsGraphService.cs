@@ -1,7 +1,5 @@
 ﻿using Azure.Identity;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Graph;
-using System.Threading.Tasks;
 
 namespace BlazorBffAzureB2C.Server.Services;
 
