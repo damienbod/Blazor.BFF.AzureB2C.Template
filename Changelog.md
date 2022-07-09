@@ -6,6 +6,7 @@
 - Improved User controller, 
 - Fix Graph dependency breaking changes
 - Update nuget packages
+- Improved docs regarding Azure Container support
 
 **2022-03-22** 1.2.0
 - use new top-level statements and remove
