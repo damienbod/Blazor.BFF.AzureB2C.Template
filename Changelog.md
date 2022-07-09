@@ -2,6 +2,11 @@
 
 [Readme](https://github.com/damienbod/Blazor.BFF.AzureB2C.Template/blob/main/README.md) 
 
+**2022-07-09** 1.2.1
+- Improved User controller, 
+- Fix Graph dependency breaking changes
+- Update nuget packages
+
 **2022-03-22** 1.2.0
 - use new top-level statements and remove
 - enable ImplicitUsings
