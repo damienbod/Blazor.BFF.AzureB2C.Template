@@ -1,17 +1,28 @@
 {
-    "author": "damienbod",
-    "classifications": [
-        "AspNetCore",
-        "WASM",
-        "AzureB2C",
-		"OAuth2"
-    ],
-    "name": "ASP.NET Core Blazor BFF hosted WASM Azure B2C",
-    "identity": "Blazor.BFF.AzureB2C.Template",
-    "shortName": "blazorbffb2c",
-    "tags": {
-        "language": "C#"
-    },
-    "sourceName": "BlazorBffAzureB2C",
-    "preferNameDirectory": "true"
+	"author": "damienbod",
+	"classifications": [
+		"AspNetCore",
+		"WASM",
+		"AzureB2C",
+		"OAuth2",
+		"Web",
+		"Cloud",
+		"Console",
+		"Solution",
+		"Blazor"
+	],
+	"name": "ASP.NET Core Blazor BFF hosted WASM Azure B2C",
+	"identity": "Blazor.BFF.AzureB2C.Template",
+	"shortName": "blazorbffb2c",
+	"tags": {
+		"language": "C#",
+		"type":"solution"
+	},
+	"sourceName": "BlazorBffAzureB2C",
+	"preferNameDirectory": "true",
+	"guids": [
+		"37DFADAA-3CEC-4DC2-919F-D721E6762108",
+		"65DEEE1B-8DEB-4732-9025-3325135D81F7",
+		"A3764333-AB8E-4899-A796-3FDAE76A3A0B"
+	]
 }

@@ -2,20 +2,20 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
 	<metadata>
 		<id>Blazor.BFF.AzureB2C.Template</id>
-		<version>1.2.1</version>
+		<version>1.2.2</version>
 		<title>Blazor.BFF.AzureB2C.Template</title>
 		<license type="file">LICENSE</license>
 		<description>Blazor BFF template for WASM ASP.NET Core hosted</description>
 			<projectUrl>https://github.com/damienbod/Blazor.BFF.AzureB2C.Template</projectUrl>
 		<authors>damienbod</authors>
 		<owners>damienbod</owners>
-		<iconUrl>http://www.gravatar.com/avatar/61d005637f57b5c3da8ba662cf04a9d6.png</iconUrl>
+		<icon>./BlazorBffAzureAD/.template.config/icon.png</icon>
 		<language>en-US</language>
 		<tags>Blazor BFF WASM ASP.NET Core</tags>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<copyright>2022 damienbod</copyright>
 		<summary>This template provides a simple Blazor template with BFF server authentication WASM hosted</summary>
-		<releaseNotes>Improved User controller, fix Graph dependency breaking changes, Update nuget packages</releaseNotes>
+		<releaseNotes>Improved template, updated nuget packages</releaseNotes>
 		<repository type="git" url="https://github.com/damienbod/Blazor.BFF.AzureB2C.Template" />
 		<packageTypes>
 			<packageType name="Template" />
