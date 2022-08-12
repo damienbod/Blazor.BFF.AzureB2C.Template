@@ -2,6 +2,10 @@
 
 [Readme](https://github.com/damienbod/Blazor.BFF.AzureB2C.Template/blob/main/README.md) 
 
+**2022-08-12** 1.2.3
+- Http port generator added
+- Updated packages
+
 **2022-08-07** 1.2.2
 - Improve template
 - Updated packages
