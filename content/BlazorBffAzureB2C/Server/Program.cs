@@ -17,6 +17,7 @@ var configuration = builder.Configuration;
 var env = builder.Environment;
 IServiceProvider? applicationServices = null;
 
+services.AddSingleton<GraphApplicationClientService>();
 services.AddScoped<MsGraphService>();
 services.AddScoped<MsGraphClaimsTransformation>();
 services.AddScoped<CaeClaimsChallengeService>();

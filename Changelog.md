@@ -2,6 +2,10 @@
 
 [Readme](https://github.com/damienbod/Blazor.BFF.AzureB2C.Template/blob/main/README.md) 
 
+**2023-01-15** 2.0.1
+- Updated packages
+- Improved Microsoft Graph client 
+
 **2022-12-03** 2.0.0
 - Updated packages to .NET 7
 
