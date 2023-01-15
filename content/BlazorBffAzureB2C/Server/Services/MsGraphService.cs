@@ -1,43 +1,30 @@
-﻿using Azure.Identity;
-using Microsoft.Graph;
+﻿using Microsoft.Graph;
 
 namespace BlazorBffAzureB2C.Server.Services;
 
 public class MsGraphService
 {
-    private readonly GraphServiceClient _graphServiceClient;
+    private readonly GraphApplicationClientService _graphApplicationClientService;
 
-    public MsGraphService(IConfiguration configuration)
+    public MsGraphService(GraphApplicationClientService graphApplicationClientService)
     {
-        string[]? scopes = configuration.GetValue<string>("GraphApi:Scopes")?.Split(' ');
-        var tenantId = configuration.GetValue<string>("GraphApi:TenantId");
-
-        // Values from app registration
-        var clientId = configuration.GetValue<string>("GraphApi:ClientId");
-        var clientSecret = configuration.GetValue<string>("GraphApi:ClientSecret");
-
-        var options = new TokenCredentialOptions
-        {
-            AuthorityHost = AzureAuthorityHosts.AzurePublicCloud
-        };
-
-        // https://docs.microsoft.com/dotnet/api/azure.identity.clientsecretcredential
-        var clientSecretCredential = new ClientSecretCredential(
-            tenantId, clientId, clientSecret, options);
-
-        _graphServiceClient = new GraphServiceClient(clientSecretCredential, scopes);
+        _graphApplicationClientService = graphApplicationClientService;
     }
 
     public async Task<User> GetGraphApiUser(string userId)
     {
-        return await _graphServiceClient.Users[userId]
+        var graphServiceClient = _graphApplicationClientService.GetGraphClientWithClientSecretCredential();
+
+        return await graphServiceClient.Users[userId]
             .Request()
             .GetAsync();
     }
 
     public async Task<IUserAppRoleAssignmentsCollectionPage> GetGraphApiUserAppRoles(string userId)
     {
-        return await _graphServiceClient.Users[userId]
+        var graphServiceClient = _graphApplicationClientService.GetGraphClientWithClientSecretCredential();
+
+        return await graphServiceClient.Users[userId]
             .AppRoleAssignments
             .Request()
             .GetAsync();
@@ -45,9 +32,11 @@ public class MsGraphService
 
     public async Task<IDirectoryObjectGetMemberGroupsCollectionPage> GetGraphApiUserMemberGroups(string userId)
     {
+        var graphServiceClient = _graphApplicationClientService.GetGraphClientWithClientSecretCredential();
+
         var securityEnabledOnly = true;
 
-        return await _graphServiceClient.Users[userId]
+        return await graphServiceClient.Users[userId]
             .GetMemberGroups(securityEnabledOnly)
             .Request()
             .PostAsync();
