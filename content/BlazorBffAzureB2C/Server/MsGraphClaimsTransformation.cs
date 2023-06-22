@@ -27,7 +27,7 @@ public class MsGraphClaimsTransformation
             {
                 var groupIds = await _msGraphService.GetGraphApiUserMemberGroups(objectIdentifier.Value);
 
-                foreach (var groupId in groupIds.ToList())
+                foreach (var groupId in groupIds!.Value!.ToList())
                 {
                     claimsIdentity.AddClaim(new Claim(groupClaimType, groupId));
                 }

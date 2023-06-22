@@ -1,4 +1,6 @@
-﻿using Microsoft.Graph;
+﻿
+using Microsoft.Graph.Users.Item.GetMemberGroups;
+using Microsoft.Graph.Models;
 
 namespace BlazorBffAzureB2C.Server.Services;
 
@@ -11,34 +13,36 @@ public class MsGraphService
         _graphApplicationClientService = graphApplicationClientService;
     }
 
-    public async Task<User> GetGraphApiUser(string userId)
+    public async Task<User?> GetGraphApiUser(string userId)
     {
-        var graphServiceClient = _graphApplicationClientService.GetGraphClientWithClientSecretCredential();
+        var graphServiceClient = _graphApplicationClientService
+            .GetGraphClientWithClientSecretCredential();
 
         return await graphServiceClient.Users[userId]
-            .Request()
             .GetAsync();
     }
 
-    public async Task<IUserAppRoleAssignmentsCollectionPage> GetGraphApiUserAppRoles(string userId)
+    public async Task<AppRoleAssignmentCollectionResponse?> GetGraphApiUserAppRoles(string userId)
     {
-        var graphServiceClient = _graphApplicationClientService.GetGraphClientWithClientSecretCredential();
+        var graphServiceClient = _graphApplicationClientService
+            .GetGraphClientWithClientSecretCredential();
 
         return await graphServiceClient.Users[userId]
             .AppRoleAssignments
-            .Request()
             .GetAsync();
     }
 
-    public async Task<IDirectoryObjectGetMemberGroupsCollectionPage> GetGraphApiUserMemberGroups(string userId)
+    public async Task<GetMemberGroupsResponse?> GetGraphApiUserMemberGroups(string userId)
     {
         var graphServiceClient = _graphApplicationClientService.GetGraphClientWithClientSecretCredential();
 
-        var securityEnabledOnly = true;
+        var requestBody = new GetMemberGroupsPostRequestBody
+        {
+            SecurityEnabledOnly = true,
+        };
 
         return await graphServiceClient.Users[userId]
-            .GetMemberGroups(securityEnabledOnly)
-            .Request()
-            .PostAsync();
+            .GetMemberGroups
+            .PostAsync(requestBody);
     }
 }
