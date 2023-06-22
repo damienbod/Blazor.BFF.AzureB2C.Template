@@ -25,7 +25,7 @@ This template can be used to create a Blazor WASM application hosted in an ASP.N
 ### install
 
 ```
-dotnet new -i Blazor.BFF.AzureB2C.Template
+dotnet new install Blazor.BFF.AzureB2C.Template
 ```
 
 ### run
@@ -180,7 +180,7 @@ public IActionResult Get()
 ### uninstall
 
 ```
-dotnet new -u Blazor.BFF.AzureB2C.Template
+dotnet new uninstall Blazor.BFF.AzureB2C.Template
 ```
 
 ## Development
@@ -198,13 +198,13 @@ nuget pack content/Blazor.BFF.AzureB2C.Template.nuspec
 Locally built nupkg:
 
 ```
-dotnet new -i Blazor.BFF.AzureB2C.Template.2.0.2.nupkg
+dotnet new install Blazor.BFF.AzureB2C.Template.2.1.0.nupkg
 ```
 
 Local folder:
 
 ```
-dotnet new -i <PATH>
+dotnet new install <PATH>
 ```
 
 Where `<PATH>` is the path to the folder containing .template.config.
