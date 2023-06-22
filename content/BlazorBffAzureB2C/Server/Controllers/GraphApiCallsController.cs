@@ -30,11 +30,13 @@ public class GraphApiCallsController : ControllerBase
         if (userId != null)
         {
             var userData = await _msGraphtService.GetGraphApiUser(userId);
+            if (userData == null)
+                return new List<string> { "no user data" };
+
             return new List<string> { $"DisplayName: {userData.DisplayName}",
             $"GivenName: {userData.GivenName}", $"AboutMe: {userData.AboutMe}" };
         }
 
-        return Array.Empty<string>();
-       
+        return Array.Empty<string>(); 
     }
 }

@@ -17,7 +17,7 @@ This template can be used to create a Blazor WASM application hosted in an ASP.N
 ### install
 
 ```
-dotnet new -i Blazor.BFF.AzureB2C.Template
+dotnet new install Blazor.BFF.AzureB2C.Template
 ```
 
 ### run
@@ -172,7 +172,7 @@ public IActionResult Get()
 ### uninstall
 
 ```
-dotnet new -u Blazor.BFF.AzureB2C.Template
+dotnet new uninstall Blazor.BFF.AzureB2C.Template
 ```
 
 ### Troubleshooting 
