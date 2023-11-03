@@ -2,6 +2,11 @@
 
 [Readme](https://github.com/damienbod/Blazor.BFF.AzureB2C.Template/blob/main/README.md) 
 
+**2023-11-03** 2.2.0
+- Fix XSS block security header
+- Updated packages
+
+
 **2023-06-21** 2.1.0
 - Switched to Graph SDK 5
 - Updated packages
