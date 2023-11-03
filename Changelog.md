@@ -6,7 +6,6 @@
 - Fix XSS block security header
 - Updated packages
 
-
 **2023-06-21** 2.1.0
 - Switched to Graph SDK 5
 - Updated packages
