@@ -1,7 +1,5 @@
 ﻿using BlazorBffAzureB2C.Server.Services;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace BlazorBffAzureB2C.Server;
 
