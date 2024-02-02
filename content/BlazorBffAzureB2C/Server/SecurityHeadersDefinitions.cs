@@ -31,9 +31,11 @@ public static class SecurityHeadersDefinitions
 
                 // due to Blazor
                 builder.AddScriptSrc()
-                    .Self()
-                    .WithHash256("v8v3RKRPmN4odZ1CWM5gw80QKPCCWMcpNeOmimNL2AA=")
-                    .UnsafeEval();
+                    .WithHash256("sha256-wTSw2ZoYOVpX8Sl5cEiYcCF8ddvCbjJhiX+oYQqD1s4=")
+                    .WithNonce()
+                    .UnsafeEval() // due to Blazor WASM
+                    .StrictDynamic()
+                    .UnsafeInline(); // only a fallback for older browsers when the nonce is used 
 
                 // disable script and style CSP protection if using Blazor hot reload
                 // if using hot reload, DO NOT deploy with an insecure CSP
