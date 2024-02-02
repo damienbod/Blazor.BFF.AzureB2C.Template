@@ -2,6 +2,12 @@
 
 [Readme](https://github.com/damienbod/Blazor.BFF.AzureB2C.Template/blob/main/README.md) 
 
+**2024-02-02** 3.0.0
+- .NET 8 update
+- Use CSP nonce
+- Fix Refresh browser
+- Updated packages
+
 **2023-11-03** 2.2.0
 - Fix XSS block security header
 - Updated packages
