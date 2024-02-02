@@ -18,6 +18,7 @@
     <PackageReference Include="Microsoft.Identity.Web.UI" Version="2.16.1" />
     <PackageReference Include="Microsoft.Identity.Web.GraphServiceClient" Version="2.16.1" />
     <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="0.21.0" />
+    <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders.TagHelpers" Version="0.21.0" />
   </ItemGroup>
 
 </Project>
